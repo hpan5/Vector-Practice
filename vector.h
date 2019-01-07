@@ -22,9 +22,10 @@ public://resize, size, at, front back, data begin, end
     T* end();
     T& front();
     T& back();
+    T* data();
 };
 
-
+/************************Element Access******************/
 template <class T>
 T& vector<T>:: operator[](size_t n)
 {
@@ -48,6 +49,13 @@ T& vector<T>:: back()
 {
     return array[arr_len-1];
 }
+
+template <class T>
+T* vector<T>:: data()
+{
+    return &array[0];
+}
+
 
 template <class T>
 T* vector<T>::begin()
