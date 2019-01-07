@@ -13,7 +13,9 @@ int main()
     int *p = test.data();
     *p = 20;
     p[1] = 40;
-    p[2] = 60;	
+    p[2] = 60;
+    int j=50;
+    cout << "test at " << j << " is: " << 	test.at(j);
     for(int* i= test.begin(); i < test.end(); i++) 
     {
         cout << "value at " << i << " is: " << *i << endl;

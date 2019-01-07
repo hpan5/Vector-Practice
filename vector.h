@@ -6,6 +6,7 @@ auuthor: Huijie Pan
 #define __vector__
 
 #include<cstdlib>
+#include<stdexcept>
 template <class T>
 class vector
 {
@@ -35,6 +36,11 @@ T& vector<T>:: operator[](size_t n)
 template <class T>
 T& vector<T>:: at(size_t n)
 {
+    if( (n<0) || (n>=arr_len))
+    {
+        throw std::out_of_range("value out of range");//& oor.what();   
+//std::cerr << "Out of Range error: " << oor.what() << '\n';
+    }
     return array[n];
 }
 
