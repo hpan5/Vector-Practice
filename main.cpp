@@ -7,7 +7,12 @@ int main()
 	::vector<int> test;
 	test.push_back(2);
 	test.push_back(3);
-	cout << test[0] << endl;
-	cout << test[1] << endl;
-	return 0;
+    test.push_back(4);
+    test.resize(10,6);
+	
+    for(int i=0; i< test.size(); i++) 
+    {
+        cout << "value at " << i << " is: " << test[i] << endl;
+	}
+    return 0;
 }

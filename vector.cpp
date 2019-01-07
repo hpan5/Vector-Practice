@@ -1,12 +1,12 @@
 #include "vector.h"
 //using namespace std;
 //resize. size
-template <class T>
-vector<T>::vector()
-{
+//template <class T>
+//vector<T>::vector()
+//{
 	//cout << "counstructed" << endl;
-}
-
+//}
+/*
 template <class T>
 T& vector<T>:: operator[](size_t n)
 {
@@ -26,7 +26,7 @@ void vector<T>:: push_back(const T& val)
 	array[arr_len-1] = val;
 
 	delete[] temp;
-}
+}*/
 
 /*vector& vector:: operator=(const vector& x)
 {
