@@ -1,4 +1,5 @@
 #include "vector.h"
+#include "capacity.h"
 #include <iostream>
 using namespace std;
 

@@ -10,15 +10,17 @@ auuthor: Huijie Pan
 template <class T>
 class vector
 {
-	T* array = nullptr;
+	//T* array = nullptr;
     size_t arr_len = 0;
-    size_t capacity = 128;
+    size_t buf_size = 0;
+    T[capacity] array;
 
 public://resize, size, at, front back, data begin, end
 	void push_back(const T& val);
 	T& operator[] (size_t n);
     size_t size();
-    void resize(size_t n, T val = T());
+    size_t capacity();
+    void resize(size_t n, T val);
     T& at(size_t n);
     T* begin();
     T* end();
@@ -62,6 +64,7 @@ T* vector<T>:: data()
     return &array[0];
 }
 
+/***************************Iterators*************************/
 template <class T>
 T* vector<T>::begin()
 {
@@ -74,6 +77,7 @@ T* vector<T>::end()
     return &array[arr_len];
 }
 
+/*******************Modifiers*****************/
 template <class T>
 void vector<T>:: push_back(const T& val)
 { //capacity 
@@ -90,13 +94,7 @@ void vector<T>:: push_back(const T& val)
 }
 
 template <class T>
-size_t vector<T>:: size()
-{
-    return arr_len;
-}
-
-template <class T>
-void vector<T>:: resize(size_t n, T val = T())
+void vector<T>:: resize(size_t n, T val)
 {
     T ini_val;
     T* temp = new T[n];
@@ -109,7 +107,7 @@ void vector<T>:: resize(size_t n, T val = T())
     }
     if(n>arr_len)
     {
-        if(n<=capacity)
+        if(n<=buf_size)
         {
             for(int i=0;i<arr_len;i++)
             {
@@ -131,5 +129,6 @@ void vector<T>:: resize(size_t n, T val = T())
     arr_len = n;
 
 }
+
 
 #endif

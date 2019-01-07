@@ -1,4 +1,5 @@
 #include "vector.h"
+#include "capacity.h"
 //using namespace std;
 //resize. size
 //template <class T>
