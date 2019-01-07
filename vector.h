@@ -13,11 +13,12 @@ class vector
 	T* array = nullptr;
     size_t arr_len = 0;
     size_t capacity = 128;
+
 public://resize, size, at, front back, data begin, end
 	void push_back(const T& val);
 	T& operator[] (size_t n);
     size_t size();
-    void resize(size_t n, T val);
+    void resize(size_t n, T val = T());
     T& at(size_t n);
     T* begin();
     T* end();
@@ -38,8 +39,7 @@ T& vector<T>:: at(size_t n)
 {
     if( (n<0) || (n>=arr_len))
     {
-        throw std::out_of_range("value out of range");//& oor.what();   
-//std::cerr << "Out of Range error: " << oor.what() << '\n';
+        throw std::out_of_range("value out of range");   
     }
     return array[n];
 }
@@ -62,7 +62,6 @@ T* vector<T>:: data()
     return &array[0];
 }
 
-
 template <class T>
 T* vector<T>::begin()
 {
@@ -75,10 +74,9 @@ T* vector<T>::end()
     return &array[arr_len];
 }
 
-
 template <class T>
 void vector<T>:: push_back(const T& val)
-{
+{ //capacity 
 	arr_len++;
     T* temp = array;
 	array = new T[arr_len];
@@ -98,7 +96,7 @@ size_t vector<T>:: size()
 }
 
 template <class T>
-void vector<T>:: resize(size_t n, T val)
+void vector<T>:: resize(size_t n, T val = T())
 {
     T ini_val;
     T* temp = new T[n];
@@ -119,8 +117,9 @@ void vector<T>:: resize(size_t n, T val)
             }
             for(int i=arr_len; i<n; i++)
             {
-                if(val != NULL) temp[i] = val;
-                else temp[i] = ini_val;
+                temp[i] = val;
+                //if(val != NULL) temp[i] = val;
+                //else temp[i] = ini_val;
             }
         }
         else
