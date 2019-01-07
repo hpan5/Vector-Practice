@@ -10,9 +10,13 @@ int main()
     test.push_back(4);
     test.resize(10,6);
 	
-    for(int i=0; i< test.size(); i++) 
+    for(int* i= test.begin(); i < test.end(); i++) 
     {
-        cout << "value at " << i << " is: " << test[i] << endl;
+        cout << "value at " << i << " is: " << *i << endl;
 	}
+    
+    cout << "The first element in the array is: " << test.front() << endl;
+    cout << "The last element in the array is: " << test.back() << endl;
+
     return 0;
 }

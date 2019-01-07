@@ -17,6 +17,11 @@ public://resize, size, at, front back, data begin, end
 	T& operator[] (size_t n);
     size_t size();
     void resize(size_t n, T val);
+    T& at(size_t n);
+    T* begin();
+    T* end();
+    T& front();
+    T& back();
 };
 
 
@@ -25,7 +30,38 @@ T& vector<T>:: operator[](size_t n)
 {
 	return array[n];
 }
- 
+
+template <class T>
+T& vector<T>:: at(size_t n)
+{
+    return array[n];
+}
+
+template <class T>
+T& vector<T>:: front()
+{
+    return array[0];
+}
+
+template <class T>
+T& vector<T>:: back()
+{
+    return array[arr_len-1];
+}
+
+template <class T>
+T* vector<T>::begin()
+{
+    return &array[0];
+}
+
+template <class T>
+T* vector<T>::end()
+{
+    return &array[arr_len];
+}
+
+
 template <class T>
 void vector<T>:: push_back(const T& val)
 {
@@ -48,7 +84,7 @@ size_t vector<T>:: size()
 }
 
 template <class T>
-void vector<T>:: resize(size_t n, T val )
+void vector<T>:: resize(size_t n, T val)
 {
     T ini_val;
     T* temp = new T[n];
