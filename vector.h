@@ -1,6 +1,5 @@
 /*
-vector.h
-auuthor: Huijie Pan
+author: Huijie Pan
 */
 #ifndef __vector__
 #define __vector__
@@ -10,14 +9,14 @@ auuthor: Huijie Pan
 template <class T>
 class vector
 {
-	//T* array = nullptr;
-    size_t arr_len = 0;
-    size_t buf_size = 0;
-    T[capacity] array;
+private:
+    T* array = nullptr;		//dynamic array
+    size_t arr_len = 0;	//number of elements
+    size_t arr_cap = 0; //amount of available space
 
 public://resize, size, at, front back, data begin, end
-	void push_back(const T& val);
-	T& operator[] (size_t n);
+    void push_back(const T& val);
+    T& operator[] (size_t n);
     size_t size();
     size_t capacity();
     void resize(size_t n, T val);
@@ -75,59 +74,6 @@ template <class T>
 T* vector<T>::end()
 {
     return &array[arr_len];
-}
-
-/*******************Modifiers*****************/
-template <class T>
-void vector<T>:: push_back(const T& val)
-{ //capacity 
-	arr_len++;
-    T* temp = array;
-	array = new T[arr_len];
-	for(int i=0; i<arr_len-1; i++)
-	{
-		array[i] = temp[i];
-	}
-     array[arr_len-1] = val;
-
-     delete[] temp;
-}
-
-template <class T>
-void vector<T>:: resize(size_t n, T val)
-{
-    T ini_val;
-    T* temp = new T[n];
-    if(n<arr_len)
-    {
-        for(int i=0; i<n; i++)
-        {
-            temp[i] = array[i];
-        }
-    }
-    if(n>arr_len)
-    {
-        if(n<=buf_size)
-        {
-            for(int i=0;i<arr_len;i++)
-            {
-                temp[i] = array[i];
-            }
-            for(int i=arr_len; i<n; i++)
-            {
-                temp[i] = val;
-                //if(val != NULL) temp[i] = val;
-                //else temp[i] = ini_val;
-            }
-        }
-        else
-        {
-            //an automatic reallocation of the allocated storage space takes place    
-        }
-    }
-    array = temp;
-    arr_len = n;
-
 }
 
 

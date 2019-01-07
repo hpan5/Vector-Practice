@@ -4,10 +4,18 @@
 #include<cstdlib>
 #include<stdexcept>
 
+/********************Capacity*********************/
 template <class T>
-T& vector<T>:: operator[](size_t n)
+size_t vector<T>:: capacity()
 {
-    return array[n];
+    return arr_cap;
 }
+
+template <class T>
+size_t vector<T>:: size()
+{
+    return arr_len;
+}
+
 
 #endif
