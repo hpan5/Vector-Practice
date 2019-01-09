@@ -10,14 +10,15 @@ int main()
     test.push_back(2);
     test.push_back(3);
     test.push_back(4);
-    //test.resize(3,5);
+    //test.reserve(5);
+    test.resize(3,5);
 
     //int *p = test.data();
     //*p = 20;
     //p[1] = 40;
     //p[2] = 60;
-    
-    for(int i= 0; i < test.size(); i++) 
+    cout << "capacity is : " << test.capacity() << endl; 
+    for(int i= 0; i < test.capacity(); i++) 
     {
         cout << "value at " << i << " is: " << test[i] << endl;
     }
