@@ -7,16 +7,19 @@ using namespace std;
 int main()
 {
     ::vector<int> test;
-    test.push_back(2);
-    test.push_back(3);
-    test.push_back(4);
+    //test.push_back(2);
+    //test.push_back(3);
+    //test.push_back(4);
     //test.reserve(5);
-    test.resize(3,5);
+    test.resize(10);
+    test.resize(5);
 
-    //int *p = test.data();
-    //*p = 20;
-    //p[1] = 40;
-    //p[2] = 60;
+    cout << "size is : " << test.size() << endl;
+    cout << "capacity is : " << test.capacity() << endl;
+
+    test.push_back(1);
+
+    cout << "size is : " << test.size() << endl;
     cout << "capacity is : " << test.capacity() << endl; 
     for(int i= 0; i < test.capacity(); i++) 
     {

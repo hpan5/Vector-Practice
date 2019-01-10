@@ -15,17 +15,23 @@ private:
     size_t arr_cap = 0; //amount of available space
 
 public://resize, size, at, front back, data begin, end
+    //Modifier
     void push_back(const T& val);
-    T& operator[] (size_t n);
+    
+    //Capacity
     size_t size();
     size_t capacity();
-    void resize(size_t n, T val);
-    T& at(size_t n);
+    void resize(size_t n, T val = T());
+    void reserve(size_t n);
+    //Iterators
     T* begin();
     T* end();
+    //Element Access
     T& front();
     T& back();
     T* data();
+    T& operator[] (size_t n);
+    T& at(size_t n);
 };
 
 /************************Element Access******************/
