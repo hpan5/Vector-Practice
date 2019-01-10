@@ -6,7 +6,7 @@
 
 /********************Capacity*********************/
 template <class T>
-bool vector<T>::empty()
+bool vector<T>::empty() const
 {
     if(arr_len == 0)
     {

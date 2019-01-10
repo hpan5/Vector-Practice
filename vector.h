@@ -15,11 +15,15 @@ class vector
     size_t arr_cap = 0; //amount of available space
 
 public://resize, size, at, front back, data begin, end
+    //constructor
+    explicit vector();
+    //Destructor
+    ~vector();
     //Modifier
     void push_back(const T& val);
     void clear(); 
     //Capacity
-    bool empty();
+    bool empty() const;
     size_t size();
     size_t capacity();
     void resize(size_t n, T val = T());
@@ -34,7 +38,13 @@ public://resize, size, at, front back, data begin, end
     T& operator[] (size_t n);
     T& at(size_t n);
 };
-
+/**************Constructor&Destructor**********************/
+template <class T>
+explicit vector<T>::vector()
+{
+    
+    
+} 
 /************************Element Access******************/
 template <class T>
 T& vector<T>:: operator[](size_t n)
