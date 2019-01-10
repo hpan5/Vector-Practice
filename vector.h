@@ -9,7 +9,7 @@ author: Huijie Pan
 template <class T>
 class vector
 {
-private:
+//private:
     T* array = nullptr;		//dynamic array
     size_t arr_len = 0;	//number of elements
     size_t arr_cap = 0; //amount of available space
@@ -17,8 +17,9 @@ private:
 public://resize, size, at, front back, data begin, end
     //Modifier
     void push_back(const T& val);
-    
+    void clear(); 
     //Capacity
+    bool empty();
     size_t size();
     size_t capacity();
     void resize(size_t n, T val = T());

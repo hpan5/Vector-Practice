@@ -3,6 +3,12 @@
 
 /*******************Modifiers*****************/
 template <class T>
+void vector<T>:: clear()
+{
+    resize(0);
+}
+
+template <class T>
 void vector<T>:: push_back(const T& val)
 { //capacity
     if(arr_len == arr_cap)

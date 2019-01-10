@@ -6,6 +6,19 @@
 
 /********************Capacity*********************/
 template <class T>
+bool vector<T>::empty()
+{
+    if(arr_len == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <class T>
 size_t vector<T>:: capacity()
 {
     return arr_cap;
@@ -44,7 +57,7 @@ void vector<T>:: resize(size_t n, T val)
         {
             for(int i=n; i<arr_len; i++)
             {
-                //array[i] = 0;
+                array[i] = val;
             }
         }
         if(n>arr_len)
