@@ -9,6 +9,13 @@ void vector<T>:: clear()
 }
 
 template <class T>
+void vector<T>::swap(vector& that)
+{
+    std::swap(this->array, that.array);
+    
+}
+
+template <class T>
 void vector<T>:: push_back(const T& val)
 { //capacity
     if(arr_len == arr_cap)

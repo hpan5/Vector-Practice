@@ -19,7 +19,10 @@ public://resize, size, at, front back, data begin, end
     explicit vector();
     //Destructor
     ~vector();
+    //Non-member Function Overloads
+    void swap(vector &x, vector &y);
     //Modifier
+    void swap(vector &that);
     void push_back(const T& val);
     void clear(); 
     //Capacity
@@ -40,10 +43,16 @@ public://resize, size, at, front back, data begin, end
 };
 /**************Constructor&Destructor**********************/
 template <class T>
-explicit vector<T>::vector()
+vector<T>:: vector()
 {
     
     
+}
+
+template <class T>
+vector<T>:: ~vector()
+{
+    delete[] array;
 } 
 /************************Element Access******************/
 template <class T>
