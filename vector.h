@@ -10,7 +10,7 @@ author: Huijie Pan
 template <class T>
 class vector
 {
-//private:
+private:
     T* array = nullptr;		//dynamic array
     size_t arr_len = 0;	//number of elements
     size_t arr_cap = 0; //amount of available space
@@ -59,10 +59,13 @@ vector<T>:: vector()
 template <class T>
 vector<T>:: vector(const vector& other)
 {
-    //array = new T;
-    array = other.array;
     arr_len = other.arr_len;
-    arr_cap = other.arr_cap; 
+    arr_cap = other.arr_cap;
+    array = new T[arr_len];
+    for(int i=0; i<arr_len; i++)
+    {
+        array[i] = other.array[i];
+    }
 }
 
 template <class T>

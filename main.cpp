@@ -5,11 +5,12 @@
 using namespace std;
 int main()
 {
-    vector<int> test2(3,10);
-    //test.swap(test2);
-    test2.push_back(1);
-    test2.push_back(2);
-    vector<int> test(move(test2));
+   vector<int> test;
+    test.push_back(2);
+    vector<int> test2(test);
+    test2[0] = 10;
+    std::cout << test[0] << std::endl; 
+    //vector<int> test(move(test2));
     
     cout << "size of test is : " << test.size() << endl;
     cout << "capacity of test is : " << test.capacity() << endl;
