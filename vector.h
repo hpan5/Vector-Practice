@@ -17,10 +17,11 @@ class vector
 public://resize, size, at, front back, data begin, end
     //constructor
     explicit vector();
+    //explicit vector(size_t count, const T& val = T())
     //Destructor
     ~vector();
     //Non-member Function Overloads
-    void swap(vector &x, vector &y);
+    void swap(vector<T> &x, vector<T> &y);
     //Modifier
     void swap(vector &that);
     void push_back(const T& val);
@@ -49,11 +50,23 @@ vector<T>:: vector()
     
 }
 
+//vector<T>:: vector(size_t)
+
 template <class T>
 vector<T>:: ~vector()
 {
     delete array;
-} 
+}
+
+/**************Non-member Function Overloads*************/ 
+template <class T>
+void vector<T>::swap(vector<T> &x, vector<T> &y)
+{
+    std::swap(x.array, y.array);
+    std::swap(x.arr_len, y.arr_len);
+    std::swap(x.arr_cap, y.arr_cap);
+    //x.swap(y);
+}
 /************************Element Access******************/
 template <class T>
 T& vector<T>:: operator[](size_t n)

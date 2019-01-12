@@ -12,7 +12,8 @@ template <class T>
 void vector<T>::swap(vector& that)
 {
     std::swap(this->array, that.array);
-    
+    std::swap(this->arr_len, that.arr_len);
+    std::swap(this->arr_cap, that.arr_cap);
 }
 
 template <class T>
@@ -25,6 +26,7 @@ void vector<T>:: push_back(const T& val)
             
             array = new T[1];
             arr_cap = 1;
+            //array[0] = val;
         }
         else
         {
@@ -33,9 +35,9 @@ void vector<T>:: push_back(const T& val)
             {
                 temp[i] = array[i];
             }
+            delete[] array;
             array = temp;
             arr_cap = 2*arr_cap;
-            delete[] temp; 
         }
     }
     array[arr_len] = val;
