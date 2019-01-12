@@ -1,5 +1,5 @@
 CC=g++
-CXXFLAGS=-g -Wall
+CXXFLAGS=-g -Wall -std=c++11
 SRC= main.o vector.o
 
 main: main.o vector.o
