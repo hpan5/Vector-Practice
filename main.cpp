@@ -6,33 +6,29 @@ using namespace std;
 
 int main()
 {
-    ::vector<int> test;
-    ::vector<int> test2;
+    vector<int> test;
+    vector<int> test2;
     test.push_back(2);
     test.push_back(3);
     test.push_back(4);
     test2.push_back(5);
-    //test.resize(10);
-    //test.resize(5);
-    test.swap(test2);
-    cout << "size is : " << test.size() << endl;
-    cout << "capacity is : " << test.capacity() << endl;
+    test2.push_back(6);
+    //test2.push_back(7);
+    //test.swap(test2);
 
-    //test.push_back(1);
-    //test.clear();
-    if(test.empty())
+    cout << "size of test is : " << test.size() << endl;
+    cout << "capacity of test is : " << test.capacity() << endl;
+
+    cout << "size of test2 is : " << test2.size() << endl;
+    cout << "capacity of test2 is : " << test2.capacity() << endl; 
+    /*for(int i= 0; i < test.size(); i++) 
     {
-        cout << "empty now" << endl;
+        cout << "value at " << i << " is: " << test[i] << endl;
     }
-    cout << "size is : " << test.size() << endl;
-    cout << "capacity is : " << test.capacity() << endl; 
     for(int i= 0; i < test2.size(); i++) 
     {
         cout << "value at " << i << " is: " << test2[i] << endl;
-    }
-    
-    cout << "The first element in the array is: " << test.front() << endl;
-    cout << "The last element in the array is: " << test.back() << endl;
+    }*/
 
     return 0;
 }

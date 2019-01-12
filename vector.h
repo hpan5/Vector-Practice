@@ -52,7 +52,7 @@ vector<T>:: vector()
 template <class T>
 vector<T>:: ~vector()
 {
-    delete[] array;
+    delete array;
 } 
 /************************Element Access******************/
 template <class T>
