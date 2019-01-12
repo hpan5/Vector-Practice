@@ -6,6 +6,7 @@ author: Huijie Pan
 
 #include<cstdlib>
 #include<stdexcept>
+
 template <class T>
 class vector
 {
@@ -17,11 +18,15 @@ class vector
 public://resize, size, at, front back, data begin, end
     //constructor
     explicit vector();
-    //explicit vector(size_t count, const T& val = T())
+    explicit vector(size_t count, const T& val = T());
+    //Copy Constructor
+    vector(const vector&other);
+    //Move constructor
+    vector(vector&& other);
     //Destructor
     ~vector();
     //Non-member Function Overloads
-    void swap(vector<T> &x, vector<T> &y);
+    //void swap(vector<T> &x, vector<T> &y);
     //Modifier
     void swap(vector &that);
     void push_back(const T& val);
@@ -42,6 +47,7 @@ public://resize, size, at, front back, data begin, end
     T& operator[] (size_t n);
     T& at(size_t n);
 };
+
 /**************Constructor&Destructor**********************/
 template <class T>
 vector<T>:: vector()
@@ -50,7 +56,37 @@ vector<T>:: vector()
     
 }
 
-//vector<T>:: vector(size_t)
+template <class T>
+vector<T>:: vector(const vector& other)
+{
+    //array = new T;
+    array = other.array;
+    arr_len = other.arr_len;
+    arr_cap = other.arr_cap; 
+}
+
+template <class T>
+vector<T>:: vector(vector&& other)
+{
+    array = other.array;
+    arr_len = other.arr_len;
+    arr_cap = other.arr_cap;
+    other.array = nullptr;
+    other.arr_len = 0;
+    other.arr_cap = 0;
+}
+
+template <class T>
+vector<T>:: vector(size_t count, const T& val)
+{
+    array = new T[count];
+    for(int i=0; i<count; i++)
+    {
+        array [i] = val;
+    }
+    arr_len = count;
+    arr_cap = count;
+}
 
 template <class T>
 vector<T>:: ~vector()
@@ -59,13 +95,16 @@ vector<T>:: ~vector()
 }
 
 /**************Non-member Function Overloads*************/ 
-template <class T>
-void vector<T>::swap(vector<T> &x, vector<T> &y)
+namespace std
 {
-    std::swap(x.array, y.array);
-    std::swap(x.arr_len, y.arr_len);
-    std::swap(x.arr_cap, y.arr_cap);
-    //x.swap(y);
+template <class T>
+void swap(vector<T> &x, vector<T> &y)
+{
+    //std::swap(x.array, y.array);
+    //std::swap(x.arr_len, y.arr_len);
+    //std::swap(x.arr_cap, y.arr_cap);
+    x.swap(y);
+}
 }
 /************************Element Access******************/
 template <class T>

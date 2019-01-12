@@ -3,19 +3,14 @@
 #include "modifier.h"
 #include <iostream>
 using namespace std;
-
 int main()
 {
-    vector<int> test;
-    vector<int> test2;
-    test.push_back(2);
-    test.push_back(3);
-    test.push_back(4);
-    test2.push_back(5);
-    test2.push_back(6);
-    //test2.push_back(7);
-    swap(test, test2);
+    vector<int> test2(3,10);
     //test.swap(test2);
+    test2.push_back(1);
+    test2.push_back(2);
+    vector<int> test(move(test2));
+    
     cout << "size of test is : " << test.size() << endl;
     cout << "capacity of test is : " << test.capacity() << endl;
 
