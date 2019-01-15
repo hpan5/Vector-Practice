@@ -4,9 +4,10 @@ author: Huijie Pan
 #ifndef __vector__
 #define __vector__
 
+//#include "modifier.h"
+//#include "capacity.h"
 #include<cstdlib>
 #include<stdexcept>
-
 template <class T>
 class vector
 {
@@ -25,6 +26,7 @@ public://resize, size, at, front back, data begin, end
     vector(vector&& other);
     //Destructor
     ~vector();
+    vector& operator=(const vector& other);
     //Non-member Function Overloads
     //void swap(vector<T> &x, vector<T> &y);
     //Modifier
@@ -35,7 +37,7 @@ public://resize, size, at, front back, data begin, end
     bool empty() const;
     size_t size();
     size_t capacity();
-    void resize(size_t n, T val = T());
+    void resize(size_t n, const T& val = T());
     void reserve(size_t n);
     //Iterators
     T* begin();
@@ -57,11 +59,26 @@ vector<T>:: vector()
 }
 
 template <class T>
+vector<T>& vector<T>:: operator=(const vector& other)
+{
+    if(&other == this)  return *this;
+    delete []array;
+    arr_len = other.arr_len;
+    arr_cap = other.arr_cap;
+    array = new T[arr_len];
+    for(int i=0; i<arr_len; i++)
+    {
+        array[i] = other.array[i];
+    }
+    return *this;
+}
+
+template <class T>
 vector<T>:: vector(const vector& other)
 {
     arr_len = other.arr_len;
     arr_cap = other.arr_cap;
-    array = new T[arr_len];
+    array = new T[arr_cap];
     for(int i=0; i<arr_len; i++)
     {
         array[i] = other.array[i];
@@ -94,7 +111,7 @@ vector<T>:: vector(size_t count, const T& val)
 template <class T>
 vector<T>:: ~vector()
 {
-    delete array;
+    delete[] array;
 }
 
 /**************Non-member Function Overloads*************/ 

@@ -1,9 +1,9 @@
 #ifndef __capacity__
 #define __capacity__
 
-#include<cstdlib>
-#include<stdexcept>
-
+#include "vector.h"
+template <class T>
+class vector;
 /********************Capacity*********************/
 template <class T>
 bool vector<T>::empty() const
@@ -48,7 +48,7 @@ void vector<T>:: reserve(size_t n)
 }
 
 template <class T>
-void vector<T>:: resize(size_t n, T val)
+void vector<T>:: resize(size_t n,const T& val)
 {
     if(n <= arr_cap)
     {
