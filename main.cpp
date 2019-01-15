@@ -2,6 +2,7 @@
 #include <iostream>
 #include "capacity.h"
 #include "modifier.h"
+#include "non_mem.h"
 using namespace std;
 int main()
 {
@@ -12,7 +13,10 @@ int main()
     test.push_back(4);
     test.push_back(10);
     vector<int> test2 = test;
-
+    if(test == test2)
+    {
+        cout << "test is equal to test2" << endl;
+    }
     cout << "size of test is : " << test.size() << endl;
     cout << "capacity of test is : " << test.capacity() << endl;
 
