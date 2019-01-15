@@ -1,9 +1,9 @@
 #ifndef __capacity__
 #define __capacity__
-
-#include "vector.h"
+#include<cstdlib>
+/*#include "vector.h"
 template <class T>
-class vector;
+class vector;*/
 /********************Capacity*********************/
 template <class T>
 bool vector<T>::empty() const
@@ -19,13 +19,13 @@ bool vector<T>::empty() const
 }
 
 template <class T>
-size_t vector<T>:: capacity()
+size_t vector<T>:: capacity() const
 {
     return arr_cap;
 }
 
 template <class T>
-size_t vector<T>:: size()
+size_t vector<T>:: size() const
 {
     return arr_len;
 }

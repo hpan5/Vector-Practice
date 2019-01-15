@@ -1,8 +1,9 @@
 #ifndef __modifier__
 #define __modifier__
-#include "vector.h"
+#include<cstdlib>
+/*#include "vector.h"
 template <class T>
-class vector;
+class vector;*/
 /*******************Modifiers*****************/
 template <class T>
 void vector<T>:: clear()

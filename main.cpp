@@ -1,8 +1,8 @@
 #include "vector.h"
 #include <iostream>
-#include "capacity.h"
-#include "modifier.h"
-#include "non_mem.h"
+//#include "capacity.h"
+//#include "modifier.h"
+//#include "non_mem.h"
 using namespace std;
 int main()
 {

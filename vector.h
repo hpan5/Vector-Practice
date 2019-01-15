@@ -35,8 +35,8 @@ public://resize, size, at, front back, data begin, end
     void clear(); 
     //Capacity
     bool empty() const;
-    size_t size();
-    size_t capacity();
+    size_t size() const;
+    size_t capacity() const;
     void resize(size_t n, const T& val = T());
     void reserve(size_t n);
     //Iterators
@@ -47,6 +47,7 @@ public://resize, size, at, front back, data begin, end
     T& back();
     T* data();
     T& operator[] (size_t n);
+    const T& operator[] (size_t n) const;
     T& at(size_t n);
 };
 
@@ -134,6 +135,12 @@ T& vector<T>:: operator[](size_t n)
 }
 
 template <class T>
+const T& vector<T>:: operator[](size_t n) const
+{
+    return array[n];
+}
+
+template <class T>
 T& vector<T>:: at(size_t n)
 {
     if( (n<0) || (n>=arr_len))
@@ -174,5 +181,7 @@ T* vector<T>::end()
     return &array[arr_len];
 }
 
-
+#include "modifier.h"
+#include "capacity.h"
+#include "non_mem.h"
 #endif
